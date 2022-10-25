@@ -1,0 +1,11 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.25",
+        "datatables/datatables": "^1.10"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.26"
+        }
+    }
+}

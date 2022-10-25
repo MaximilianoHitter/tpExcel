@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    padding-bottom: 3em;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.user {
+    list-style: none;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.warning {
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: #B06AB3;
+    padding-top: 20px;
+}
+
+.exportExcel{
+    padding: 5px;
+    border: 1px solid grey;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.drag-area {
+    height: 300px;
+    width: 700px;
+    border: 2px solid black;
+    background: #5256ad;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.drag-area .icon {
+    font-size: 100px;
+    color: #fff;
+}
+
+.drag-area p {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.drag-area button {
+    font-weight: 500;
+}

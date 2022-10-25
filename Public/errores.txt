@@ -1,0 +1,11 @@
+Catalogo de errores
+
+Modelos:
+error 0: fallo al conectar en la db
+error 1: fallo al ejecutar la consulta
+error 2: fallo de delegacion
+error 3: PDO exception
+        $rta->errorInfo
+        1062 : Clave ya existe (clave primaria)
+        1451 : Posee registros en otra tabla esa clave (clave foranea)
+
