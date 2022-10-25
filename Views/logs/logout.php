@@ -6,6 +6,6 @@ session_unset();
 
 session_destroy();
 
-header('Location: /pruebaExcel');
+header('Location: /tpExcel');
 
 ?>
