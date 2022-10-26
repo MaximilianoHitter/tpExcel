@@ -19,6 +19,8 @@
     
     $listado = $controlNotas->listarTodo($arrayBusqueda);
     // no funca todavia
+
+    
 ?>
 
 <div class="container">
@@ -72,6 +74,9 @@
         </table>
         <script src=\"../../Public/jsPuro/data.js\"></script>";
     }
+        $controlExcel = new ControlExcel();
+        $ruta = $controlExcel->genera($listado);
+        echo "<div class=\"container\"><div class=\"alert alert-success text-center\" role=\"alert\"><a href=\"$ruta\" download=\"listado.xlsx\">Descargue todo el listado</a></div></div>";
     ?>
 <!-- <h3 class="d-flex justify-content-center m-4">Seleccione el archivo que desea leer</h3>
     <div class="row">

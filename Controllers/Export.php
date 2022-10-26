@@ -8,36 +8,46 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 trait Export {
     
     public function genera($array) {
-        /* var_dump($array); */
+        //var_dump($array);
+        $arrayFinal = $array['array'];
+        $arrayTH = array('ID', 'Nombre y Apellido', 'Legajo', 'Materia', 'Nota');
+        array_unshift($arrayFinal, $arrayTH);
         try {
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
             $contador = 1;
             $arrayLetras = array( 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I' );
-            foreach( $array as $key => $value ){
+            foreach( $arrayFinal as $key => $value ){
+                if($contador != 1){
+                    $datos = $value->dameDatos();
+                }else{
+                    $datos = $value;
+                }
                 $contadorColumnas = 0;
-                foreach( $value as $llave => $valor ){
+                foreach( $datos as $llave => $valor ){
                     $letra = $arrayLetras[$contadorColumnas];
                     $sheet->setCellValue( "$letra$contador", "$valor" );
                     $contadorColumnas++;
                 }
                 $contador++;
             }
-            echo '<p class="lead d-flex justify-content-center">Se pudo crear la hoja de calculo!</p>';
+            //echo '<p class="lead d-flex justify-content-center">Se pudo crear la hoja de calculo!</p>';
         } catch( \Throwable $th ){
-            echo '<p class="lead d-flex justify-content-center">Algo faio :c</p>';
+            //echo '<p class="lead d-flex justify-content-center">Algo faio :c</p>';
             var_dump($th);
         }
             
         $name = rand( 0, 1000 );
         try {
             $writer = new Xlsx( $spreadsheet );
-            $writer->save("../../Public/documents/$name.xls");
-            echo '<p class="lead d-flex justify-content-center">Se pudo guardar la hoja!</p>';
+            $writer->save("../../Public/documents/$name.xlsx");
+            $ruta = "../../Public/documents/$name.xlsx";
+            //echo '<p class="lead d-flex justify-content-center">Se pudo guardar la hoja!</p>';
         } catch( \Throwable $th ){
-            echo '<p class="lead d-flex justify-content-center">No se pudo guardar :c</p>';
+            //echo '<p class="lead d-flex justify-content-center">No se pudo guardar :c</p>';
             var_dump($th);
         }
+        return $ruta;
     }
 
 }
