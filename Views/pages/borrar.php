@@ -38,7 +38,7 @@ if( array_key_exists('array', $rta) ){
         </span>
 
         <div class="d-flex justify-content-center">
-            <a href="../pages/ver.php"><button type="submit" class="btn btn-secondary m-2" data-bs-dismiss="modal">No, volver atrás</button></a>
+            <a href="../pages/ver.php" type="button" class="btn btn-secondary m-2">No, volver atrás</a>
             <button type="submit" class="btn btn-primary m-2">Si, estoy seguro</button>
         </div>
         </form>
