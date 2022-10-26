@@ -1,53 +1,65 @@
 <?php
     require_once('../templates/header.php');
+    require_once('../../Vendor/autoload.php');
 
     $controlNotas = new ControlNotas();
-    $rta = $controlNotas->listarTodo();
+    $rta = $controlNotas->buscarId();
+    //var_dump( $rta );
+    //$rta = $controlNotas->listarTodo( $dataId );
     if(array_key_exists('array', $rta)){
-        //devolvio notas
-        echo "<table class=\"tablita\" id=\"tablita\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Legajo</th>
-                <th>Dni</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Mail</th>
-                <th>Carrera</th>
-                <th>Materia</th>
-                <th>Nota</th>
-                <th>Acción</th>
-            </tr>
-        </thead>
-        <tbody>";
-        foreach ($rta['array'] as $key => $value) {
-            echo "<tr>";
-            $id = $value->getId();
-            echo "<td>$id</td>";
-            $legajo = $value->getLegajo();
-            echo "<td>$legajo</td>";
-            $nombre = $value->getNombreApellido();
-            echo "<td>$nombreApellido</td>";
-            $materia = $value->getMateria();
-            echo "<td>$materia</td>";
-            $nota = $value->getNota();
-            echo "<td>$nota</td>";
-            echo "<td><a href=\"buscaId.php?id=$id\">Modificar</a>";
-            echo "</tr>";
-        }
+        // Devolvio notas!
+        echo "<div class=\"container\">
+        <h3 class=\"d-flex justify-content-center m-3\">Ingrese los datos a modificar</h3>
+        <form action=\"../accion/accionModificar.php\" method=\"GET\">
+        <div class=\"d-flex flex-row align-items-center mb-4\">
+        <div class=\"form-outline flex-fill mb-0\">
+            <table class=\"display table tablita\" id=\"tablita\">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Legajo</th>
+                    <th>Apellido y Nombre</th>
+                    <th>Materia</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>";
+
+        $id = $rta['array']->getId();
+        echo "<td><input type=\"text\" name=\"id\" class=\"form-control\" readonly value=\"$id\"></td>";
+
+        $legajo = $rta['array']->getLegajo();
+        echo "<td><input type=\"text\" name=\"legajo\" class=\"form-control\" value=\"$legajo\"></td>";
+            
+        $nombre = $rta['array']->getApellidoNombre();
+        echo "<td><input type=\"text\" name=\"nombre\" class=\"form-control\" value=\"$nombre\"></td>";
+            
+        $materia = $rta['array']->getMateria();
+        echo "<td><input type=\"text\" name=\"materia\" class=\"form-control\" readonly value=\"$materia\"></td>";
+            
+        $nota = $rta['array']->getNota();
+        echo "<td><input type=\"text\" name=\"nota\" class=\"form-control\" value=\"$nota\"></td>";
+            
+        //echo "<td><a href=\"buscaId.php?id=$id\">Modificar</a>";
+        echo "</tr>";
         echo "</tbody>
         
         </table>
-        <script src=\"../../Public/jsPuro/data.js\"></script>";
-    }else{
+        <div class=\"d-flex justify-content-center m-4\">
+            <button class=\"btn btn-success m-1\" type=\"submit\" name=\"submit\">Enviar</button>
+        </div>
+        </div></div></form></div>";
+    } else {
+        // No devuelve na
         echo $rta['error'];
     }
 ?>
 
-<link rel="stylesheet" href="../../Vendor/datatables/datatables/media/css/jquery.dataTables.min.css">
-<script src="../../Vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
-
+<!-- <script src="../../Public/jsPuro/data.js"></script> -->
+<!-- <link rel="stylesheet" href="../../Vendor/datatables/datatables.min.css">
+<script src="../../Vendor/datatables/datatables.min.js"></script>
+ -->
 <?php
     require_once('../templates/footer.php');
 ?>

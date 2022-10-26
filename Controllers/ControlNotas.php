@@ -5,8 +5,8 @@ class ControlNotas extends MasterController {
     use Errores;
 
     //metodo para listar todo
-    public function listarTodo($arrayBusqueda) {
-        $rta = Notas::listar($arrayBusqueda);
+    public function listarTodo( $arrayBusqueda ){
+        $rta = Notas::listar( $arrayBusqueda );
         if ($rta['respuesta'] == true) {
             $datos['array'] = $rta['array'];
         } else {
@@ -18,17 +18,17 @@ class ControlNotas extends MasterController {
     //metodo para buscar por el id de la tabla
     public function buscarId() {
         $idBusqueda = $this->buscarKey('id');
-        if($idBusqueda == false){
+        if( $idBusqueda == false ){
             //hubo un error
             $datos['error'] = $this->warning('No se ha encontrado dicho registro.');
-        }else{
+        } else {
             //se encontro
             $array['id'] = $idBusqueda;
             $nota = new Notas();
             $rta = $nota->buscar($array);
-            if($rta['respuesta'] == false){
+            if( $rta['respuesta'] == false ){
                 $datos['error'] = $this->manejarError($rta);
-            }else{
+            } else {
                 $datos['array'] = $nota;
             }
             return $datos;
@@ -36,7 +36,7 @@ class ControlNotas extends MasterController {
     }
 
     //metodo para generar el html de una nota 
-    public function notaHTML($objNota) {
+    public function notaHTML( $objNota ){
         $datos = $objNota->dameDatos();
         //[$id, $legajo, $dni, $nombre, $apellido, $mail, $carrera, $materia, $nota] = $datos;
         extract($datos, EXTR_PREFIX_SAME, '');

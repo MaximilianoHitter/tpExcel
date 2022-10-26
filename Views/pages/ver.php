@@ -73,7 +73,7 @@
     if( isset($listado['array']) ){
         $controlExcel = new ControlExcel();
         $ruta = $controlExcel->genera( $listado );
-        echo "<div class=\"container\"><div class=\"alert alert-success text-center\" role=\"alert\"><a href=\"$ruta\" download=\"listado.xlsx\">Descargue todo el listado</a></div></div>";
+        echo "<div class=\"container\"><div class=\"alert alert-success text-center\" role=\"alert\"><a href=\"$ruta\" id=\"botoncito\" download=\"listado.xlsx\">Descargue todo el listado</a></div></div>";
     } else {
         echo "<div class=\"container\"><div class=\"alert alert-danger text-center\" role=\"alert\">El usuario no posee registros.</div></div>";
     }
