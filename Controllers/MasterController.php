@@ -41,6 +41,7 @@ class MasterController {
                 
             }
         }
+        $conn = null;
         return $materiaDada;
     }
 }

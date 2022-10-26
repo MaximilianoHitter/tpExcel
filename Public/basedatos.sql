@@ -3,11 +3,9 @@ use tpexcel;
 
 CREATE TABLE profesor (
     usuario varchar(20) NOT NULL,
-    contraseña varchar(255) NOT NULL,
+    contrasenia varchar(255) NOT NULL,
     mailInstitucional varchar(50) NOT NULL,
     materia varchar(255) NOT NULL,
-    /* El listar solo le muestra las materias que tiene el profesor
-    Para que pueda modificar solo los archivos que le corresponden solo a su materia */
     PRIMARY KEY (usuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

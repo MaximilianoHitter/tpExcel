@@ -135,7 +135,7 @@ class Notas {
         $respuesta['codigoError'] = null;
         $base = new db();
         $nota = floatval($this->getNota());
-        $sql = "INSERT INTO notas VALUES('', '{$this->getLegajo()}', '{$this->getApellidoNombre()}', '{$this->getMateria()}', $nota)";
+        $sql = "INSERT INTO notas VALUES(DEFAULT, '{$this->getLegajo()}', '{$this->getApellidoNombre()}', '{$this->getMateria()}', $nota)";
         //var_dump($sql);
         try {
             if($base->Iniciar()){

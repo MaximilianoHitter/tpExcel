@@ -5,6 +5,7 @@
     if(!isset($_SESSION['user_id'])){
         //$materiaDada
         $arrayBusqueda = [];
+        $mate = null;
     }else{
         $mate = $controlNotas->comprobarMateria($_SESSION['user_id']);
         if($mate != null){
@@ -22,7 +23,55 @@
 
 <div class="container">
     <?php
-    var_dump($listado);
+    $rta = $listado;
+    if(array_key_exists('error', $rta)){
+        //$rta = $listado['error'];
+        echo $rta['error'];
+    }else{
+        if(isset($mate) OR $mate != null){
+           $accion1 = "<th>Modificar</th>";
+           $accion2 = "<th>Eliminar</th>";
+        }else{
+            $accion1 = '';
+            $accion2 = '';
+        }
+        echo "<table class=\"tablita\" id=\"tablita\">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Legajo</th>
+                <th>Apellido y Nombre</th>
+                <th>Materia</th>
+                <th>Nota</th>
+                $accion1
+                $accion2
+            </tr>
+        </thead>
+        <tbody>";
+        foreach ($rta['array'] as $key => $value) {
+            echo "<tr>";
+            $id = $value->getId();
+            echo "<td>$id</td>";
+            $legajo = $value->getLegajo();
+            echo "<td>$legajo</td>";
+            $nombre = $value->getApellidoNombre();
+            echo "<td>$nombre</td>";
+            $materia = $value->getMateria();
+            echo "<td>$materia</td>";
+            $nota = $value->getNota();
+            echo "<td>$nota</td>";
+            if($accion1 != ''){
+                echo "<td><a href=\"modificar.php?id=$id\">Modificar</a>";
+                echo "<td><a href=\"borrar.php?id=$id\">Eliminar</a>";
+                echo "</tr>";
+            }          
+
+        }
+        echo "</tbody>
+        
+        </table>
+        <script src=\"../../Public/jsPuro/data.js\"></script>";
+    }
     ?>
 <!-- <h3 class="d-flex justify-content-center m-4">Seleccione el archivo que desea leer</h3>
     <div class="row">

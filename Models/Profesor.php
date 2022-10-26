@@ -10,11 +10,11 @@ class Profesor {
     static $mensajeOperacion = '';
     
     public function __construct() {
-        $this->usuario           = '';
-        $this->contrasenia        = '';
+        $this->usuario = '';
+        $this->contrasenia = '';
         $this->mailInstitucional = '';
-        $this->materia          = '';
-        $this->mensajeOp         = '';
+        $this->materia = '';
+        $this->mensajeOp = '';
     }
 
     // Getters & Setters

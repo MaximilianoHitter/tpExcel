@@ -17,14 +17,18 @@
         $records->bindParam(':usuario', $data['POST']['usuario']);
         $records->execute();
         $results = $records->fetch(PDO::FETCH_ASSOC);
-    
-        $message = '';
-        if (count($results) > 0 && password_verify($data['POST']['contrasenia'], $results['contrasenia'])) {
-            $_SESSION['user_id'] = $results['usuario'];
-            header("Location: /clasesUtiles");
-        } else {
+        if(is_array($results)){
+            $message = '';
+            if (count($results) > 0 && password_verify($data['POST']['contrasenia'], $results['contrasenia'])) {
+                $_SESSION['user_id'] = $results['usuario'];
+                header("Location: /tpExcel");
+            } else {
+                $message = 'Intente nuevamente, las credenciales no coinciden';
+            }
+        }else{
             $message = 'Intente nuevamente, las credenciales no coinciden';
         }
+        
     }
 ?>
 

@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- CSS Puro -->
     <link rel="stylesheet" href="../../Public/cssPuro/style.css">
+    <!--Datatables-->
+    <link rel="stylesheet" href="../../Vendor/datatables/datatables.min.css">
+    <script src="../../Vendor/datatables/datatables.min.js"></script>
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>

@@ -32,10 +32,12 @@
         //var_dump($arrayNuevo);
         $rta = $controlNotas->insertar($arrayNuevo);
         if($rta['respuesta']){
-            echo "gut";
+            //echo "gut";
+            echo "<div class=\"container\"><div class=\"alert alert-success text-center\" role=\"alert\">¡Se han cargado correctamente en la base de datos!</div></div>";
             array_push($arrayTotal, $arrayTupla);
         }else{
-            echo "faio";
+            //echo "faio";
+            echo "<div class=\"container\"><div class=\"alert alert-warning text-center\" role=\"alert\">¡Ups, hubo algún problema :c!</div></div>";
             //var_dump($rta['errorInfo']);
         }
         
@@ -69,10 +71,10 @@
         $spreadsheet->getProperties()->setCreator('GoMax');
         $spreadsheet->getDefaultStyle()->getFont()->setName('Poppins');
         $spreadsheet->getDefaultStyle()->getFont()->setSize('20');
-        echo '<p class="lead d-flex justify-content-center">Se pudo crear la hoja de calculo!</p>';
+        echo "<div class=\"container\"><div class=\"alert alert-success text-center\" role=\"alert\">¡Se pudo crear la hoja de calculo!</div></div>";
     } catch( \Throwable $th ){
-        echo '<p class="lead d-flex justify-content-center">Algo faio :c</p>';
-        var_dump($th);
+        echo "<div class=\"container\"><div class=\"alert alert-warning text-center\" role=\"alert\">¡No se ha podido crear la hoja de calculo!</div></div>";
+        //var_dump($th);
     }
         
     $name = rand( 0, 1000 );
@@ -100,10 +102,10 @@
             'nota' => $valueD
         );
         $controlNotas->insertar( $arrayValores ); */
-        echo '<p class="lead d-flex justify-content-center">Se pudo guardar la hoja!</p>';
+        echo "<div class=\"container\"><div class=\"alert alert-success text-center\" role=\"alert\"><a href=\"../../Public/documents/profesorUpload/$name.xlsx\" download=\"comprobante.xlsx\">Descargue su comprobante</a></div></div>";
     } catch( \Throwable $th ){
-        echo '<p class="lead d-flex justify-content-center">No se pudo guardar :c</p>';
-        var_dump($th);
+        echo "<div class=\"container\"><div class=\"alert alert-warning text-center\" role=\"alert\">¡No podrá descargar su comprobante!</div></div>";
+        //var_dump($th);
     }
 
     /* $legajos = $data['POST']['legajo'];

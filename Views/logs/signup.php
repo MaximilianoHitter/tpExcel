@@ -5,23 +5,27 @@
     $conn = new db();
     $profesor = new ProfesorController();
     $data = $profesor->getDatos();
-    
+    //var_dump($data);
     $message = '';
-    if( !empty($data['POST']['usuario']) && !empty($data['POST']['contrasenia']) && !empty($data['POST']['mail']) && !empty($data['POST']['materia']) ){
-        $sql = "INSERT INTO profesor (usuario, contrasenia, mailInstitucional, materia) VALUES (:usuario, :contrasenia, :mail, :materia)";
-        $statement = $conn->prepare( $sql );
-        $statement->bindParam( ':usuario', $data['POST']['usuario'] );
-        $contrasenia = password_hash( $data['POST']['contrasenia'], PASSWORD_BCRYPT );
-        $statement->bindParam( ':contrasenia', $contrasenia );
-        $statement->bindParam( ':mail', $data['POST']['mail'] );
-        $statement->bindParam( ':materia', $data['POST']['materia'] );
-
-        if( $statement->execute() ){
-            $message = 'Usuario creado piolon';
-        } else {
-            $message = 'Error';
+    if(isset($_POST) OR isset($_GET)){
+        if( !empty($data['POST']['usuario']) && !empty($data['POST']['contrasenia']) && !empty($data['POST']['mail']) && !empty($data['POST']['materia']) ){
+            $sql = "INSERT INTO profesor (usuario, contrasenia, mailInstitucional, materia) VALUES (:usuario, :contrasenia, :mailInstitucional, :materia)";
+            $statement = $conn->prepare( $sql );
+            $statement->bindParam( ':usuario', $data['POST']['usuario'] );
+            $contrasenia = password_hash( $data['POST']['contrasenia'], PASSWORD_BCRYPT );
+            $statement->bindParam( ':contrasenia', $contrasenia );
+            $statement->bindParam( ':mailInstitucional', $data['POST']['mail'] );
+            $statement->bindParam( ':materia', $data['POST']['materia'] );
+            //var_dump($statement->execute());
+            if( $statement->execute() ){
+                $message = 'Usuario creado piolon';
+            } else {
+                $message = 'Error';
+            }
         }
     }
+
+    
 ?>
 
 
