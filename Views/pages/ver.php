@@ -2,38 +2,35 @@
     require_once( '../templates/header.php' );
     require_once('../../Vendor/autoload.php');
     $controlNotas = new ControlNotas();
-    if(!isset($_SESSION['user_id'])){
+    if( !isset($_SESSION['user_id']) ){
         //$materiaDada
         $arrayBusqueda = [];
         $mate = null;
-    }else{
-        $mate = $controlNotas->comprobarMateria($_SESSION['user_id']);
-        if($mate != null){
+    } else {
+        $mate = $controlNotas->comprobarMateria( $_SESSION['user_id'] );
+        if( $mate != null ){
             $arrayBusqueda['materia'] = $mate;
-        }else{
+        } else {
             $arrayBusqueda = [];
         }
     }
     //var_dump($mate);
     
-    
     $listado = $controlNotas->listarTodo($arrayBusqueda);
     // no funca todavia
-
-    
 ?>
 
 <div class="container">
-    <?php
+<?php    
     $rta = $listado;
-    if(array_key_exists('error', $rta)){
+    if( array_key_exists('error', $rta) ){
         //$rta = $listado['error'];
         echo $rta['error'];
-    }else{
-        if(isset($mate) OR $mate != null){
+    } else {
+        if( isset($mate) OR $mate != null ){
            $accion1 = "<th>Modificar</th>";
            $accion2 = "<th>Eliminar</th>";
-        }else{
+        } else {
             $accion1 = '';
             $accion2 = '';
         }
@@ -50,7 +47,7 @@
             </tr>
         </thead>
         <tbody>";
-        foreach ($rta['array'] as $key => $value) {
+        foreach( $rta['array'] as $key => $value ){
             echo "<tr>";
             $id = $value->getId();
             echo "<td>$id</td>";
@@ -62,22 +59,25 @@
             echo "<td>$materia</td>";
             $nota = $value->getNota();
             echo "<td>$nota</td>";
-            if($accion1 != ''){
+            if( $accion1 != '' ){
                 echo "<td><a href=\"modificar.php?id=$id\">Modificar</a>";
                 echo "<td><a href=\"borrar.php?id=$id\">Eliminar</a>";
                 echo "</tr>";
             }          
-
         }
         echo "</tbody>
         
         </table>
         <script src=\"../../Public/jsPuro/data.js\"></script>";
     }
+    if( isset($listado['array']) ){
         $controlExcel = new ControlExcel();
-        $ruta = $controlExcel->genera($listado);
+        $ruta = $controlExcel->genera( $listado );
         echo "<div class=\"container\"><div class=\"alert alert-success text-center\" role=\"alert\"><a href=\"$ruta\" download=\"listado.xlsx\">Descargue todo el listado</a></div></div>";
-    ?>
+    } else {
+        echo "<div class=\"container\"><div class=\"alert alert-danger text-center\" role=\"alert\">El usuario no posee registros.</div></div>";
+    }
+?>
 <!-- <h3 class="d-flex justify-content-center m-4">Seleccione el archivo que desea leer</h3>
     <div class="row">
         <div class="col-4">
