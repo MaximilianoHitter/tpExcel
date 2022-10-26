@@ -171,22 +171,22 @@ class Notas {
         $base = new db();
         $sql = "UPDATE notas SET legajo = '{$this->getLegajo()}', apellidoNombre = '{$this->getApellidoNombre()}', materia = '{$this->getMateria()}', nota = {$this->getNota()} WHERE id = {$this->getId()}";
         try {
-            if($base->Iniciar()){
-                if($base->Ejecutar($sql)){
+            if( $base->Iniciar() ){
+                if( $base->Ejecutar($sql) ){
                     $respuesta['respuesta'] = true;
-                }else{
-                    $this->setMensajeOperacion($base->getError());
+                } else {
+                    $this->setMensajeOperacion( $base->getError() );
                     $respuesta['respuesta'] = false;
                     $respuesta['errorInfo'] = 'Hubo un error con la consulta';
                     $respuesta['codigoError'] = 1;
                 }
-            }else{
-                $this->setMensajeOperacion($base->getError());
+            } else {
+                $this->setMensajeOperacion( $base->getError() );
                 $respuesta['respuesta'] = false;
                 $respuesta['errorInfo'] = 'Hubo un error con la conexión de la base de datos';
                 $respuesta['codigoError'] = 0;
             }
-        } catch (\Throwable $th) {
+        } catch( \Throwable $th ){
             $respuesta['respuesta'] = false;
             $respuesta['errorInfo'] = $th;
             $respuesta['codigoError'] = 3;

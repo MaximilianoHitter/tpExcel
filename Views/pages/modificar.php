@@ -6,7 +6,7 @@
     $rta = $controlNotas->buscarId();
     //var_dump( $rta );
     //$rta = $controlNotas->listarTodo( $dataId );
-    if(array_key_exists('array', $rta)){
+    if( array_key_exists('array', $rta) ){
         // Devolvio notas!
         echo "<div class=\"container\">
         <h3 class=\"d-flex justify-content-center m-3\">Ingrese los datos a modificar</h3>

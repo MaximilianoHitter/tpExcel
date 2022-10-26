@@ -73,8 +73,17 @@ class ControlNotas extends MasterController {
         $obj = null;
         if( array_key_exists('legajo', $param) ){
             $obj = new Notas();
-            $obj->cargar( '', $param['legajo'], $param['apellidoNombre'], $param['materia'], $param['nota']);
+            $obj->cargar( '', $param['apellidoNombre'], $param['legajo'], $param['materia'], $param['nota']);
             $obj->insertar();
+        }
+        return $obj;
+    }
+
+    private function cargarObjetoConClave( $param ){
+        $obj = null;
+        if( isset($param['legajo']) ){
+            $obj = new Notas();
+            $obj->cargar( '', $param['apellidoNombre'], $param['legajo'], $param['materia'], $param['nota'] );
         }
         return $obj;
     }
@@ -92,6 +101,22 @@ class ControlNotas extends MasterController {
         if( $this->seteadosCamposClaves($data) ){
             $objNota = $this->cargarObjeto( $data );
             if( $objNota != null && $objNota->modificar() ){
+                $bandera = true;
+            }
+        }
+        return $bandera;
+    }
+
+    public function baja( $param ){
+        $bandera = false;
+        /* if( $this->seteadosCamposClaves($param) ){
+            $objNota = $this->cargarObjetoConClave( $param );
+            if( $objNota != null && $objNota->eliminar() ){
+                $bandera = true;
+            }
+        } */
+        if( $param->getId() != null ){
+            if( $param->eliminar() ){
                 $bandera = true;
             }
         }
