@@ -49,9 +49,12 @@
             <div class="d-flex justify-content-center m-4">
                 <button class="btn btn-primary m-1" type="button" name="newAlumno" id="newAlumno">Insertar otro alumno</button>
                 <button class="btn btn-success m-1" type="submit" name="submit" id="submit">Cargar</button>
+                <a href="../pages/cargarExcel.php" class="btn btn-secondary m-1" type="button">Cargar excel</a>
             </div>
         </div>
     </form>
+    <div class="d-flex justify-content-center">
+    </div>
 </div>
 
 <div class="m-5"></div>

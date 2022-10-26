@@ -79,6 +79,21 @@ class ControlNotas extends MasterController {
         return $obj;
     }
 
+    public function modificacionCopada(){
+        $rta = $this->buscarId();
+        $nota = $rta['array'];
+        $legajo = $this->buscarKey('legajo');
+        $apellidoNombre = $this->buscarKey('apellidoNombre');
+        $materia = $this->buscarKey('materia');
+        $notaValor = $this->buscarKey('nota');
+        $nota->setLegajo($legajo);
+        $nota->setApellidoNombre($apellidoNombre);
+        $nota->setMateria($materia);
+        $nota->setNota($notaValor);
+        $respuesta = $nota->modificar();
+        return $respuesta;
+    }
+
     private function cargarObjetoConClave( $param ){
         $obj = null;
         if( isset($param['legajo']) ){
@@ -99,8 +114,9 @@ class ControlNotas extends MasterController {
     public function modificacion( $data ){
         $bandera = false;
         if( $this->seteadosCamposClaves($data) ){
-            $objNota = $this->cargarObjeto( $data );
-            if( $objNota != null && $objNota->modificar() ){
+            $objNota = $this->cargarObjetoConClave( $data );
+            $rta = $objNota->modificar();
+            if( $rta['respuesta'] ){
                 $bandera = true;
             }
         }

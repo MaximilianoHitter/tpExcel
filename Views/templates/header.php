@@ -66,8 +66,6 @@
                                 <?php if( isset($_SESSION['user_id']) ): ?>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../pages/cargar.php">Cargar</a></li>
-                                <li><a class="dropdown-item" href="../pages/modificar.php">Modificar</a></li>
-                                <li><a class="dropdown-item" href="../pages/borrar.php">Borrar</a></li>
                                 <?php endif; ?>
                             </ul>
                         </li>

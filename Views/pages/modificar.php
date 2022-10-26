@@ -33,7 +33,7 @@
         echo "<td><input type=\"text\" name=\"legajo\" class=\"form-control\" value=\"$legajo\"></td>";
             
         $nombre = $rta['array']->getApellidoNombre();
-        echo "<td><input type=\"text\" name=\"nombre\" class=\"form-control\" value=\"$nombre\"></td>";
+        echo "<td><input type=\"text\" name=\"apellidoNombre\" class=\"form-control\" value=\"$nombre\"></td>";
             
         $materia = $rta['array']->getMateria();
         echo "<td><input type=\"text\" name=\"materia\" class=\"form-control\" readonly value=\"$materia\"></td>";

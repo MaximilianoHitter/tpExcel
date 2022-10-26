@@ -28,8 +28,8 @@
         echo $rta['error'];
     } else {
         if( isset($mate) OR $mate != null ){
-           $accion1 = "<th>Modificar</th>";
-           $accion2 = "<th>Eliminar</th>";
+           $accion1 = "<th></th>";
+           $accion2 = "<th></th>";
         } else {
             $accion1 = '';
             $accion2 = '';
@@ -60,8 +60,10 @@
             $nota = $value->getNota();
             echo "<td>$nota</td>";
             if( $accion1 != '' ){
-                echo "<td><a href=\"modificar.php?id=$id\">Modificar</a>";
-                echo "<td><a href=\"borrar.php?id=$id\">Eliminar</a>";
+                echo "<td><a href=\"modificar.php?id=$id\"><button class=\"btn btn-primary m-1\">Modificar</button></a>";
+                //echo "<td><a href=\"modificar.php?id=$id\">Modificar</a>";
+                echo "<td><a href=\"borrar.php?id=$id\"><button class=\"btn btn-danger m-1\">Eliminar</button></a>";
+                //echo "<td><a href=\"borrar.php?id=$id\">Eliminar</a>";
                 echo "</tr>";
             }          
         }
