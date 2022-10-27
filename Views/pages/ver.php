@@ -25,7 +25,7 @@
     $rta = $listado;
     if( array_key_exists('error', $rta) ){
         //$rta = $listado['error'];
-        echo $rta['error'];
+        //echo $rta['error'];
     } else {
         if( isset($mate) OR $mate != null ){
            $accion1 = "<th></th>";
@@ -77,7 +77,7 @@
         $ruta = $controlExcel->genera( $listado );
         echo "<div class=\"container\"><div class=\"alert alert-success text-center\" role=\"alert\"><a href=\"$ruta\" id=\"botoncito\" download=\"listado.xlsx\">Descargue todo el listado</a></div></div>";
     } else {
-        echo "<div class=\"container\"><div class=\"alert alert-danger text-center\" role=\"alert\">El usuario no posee registros.</div></div>";
+        echo "<div class=\"container\"><div class=\"alert alert-danger text-center m-4\" role=\"alert\">Actualmente no se poseen registros.</div></div>";
     }
 ?>
 <!-- <h3 class="d-flex justify-content-center m-4">Seleccione el archivo que desea leer</h3>

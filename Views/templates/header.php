@@ -70,7 +70,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="https://github.com/MaximilianoHitter/pruebaExcel" target="_blank">GitHub</a>
+                            <a class="nav-link active" aria-current="page" href="https://github.com/MaximilianoHitter/tpExcel" target="_blank">GitHub</a>
                         </li>
                     </ul>
                 </div>

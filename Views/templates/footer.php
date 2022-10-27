@@ -2,7 +2,7 @@
 
 <footer class="d-block bg-dark mt-auto footer">
     <div class="text-center text-white py-2">
-        <p>© Developed by Maximiliano Ariel Hitter & Gonzalo Marin Parra | 2022</p>
+        <p>© Developed by Gonzalo Marin Parra & Maximiliano Ariel Hitter | 2022</p>
     </div>
 </footer>
 
