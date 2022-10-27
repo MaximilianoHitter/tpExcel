@@ -4,7 +4,10 @@
 
     $controlNotas = new ControlNotas();
     $rta = $controlNotas->buscarId();
-    //var_dump( $rta );
+    if($rta == false){
+        header('Location: ../home/index.php');
+    }else{
+         //var_dump( $rta );
     //$rta = $controlNotas->listarTodo( $dataId );
     if( array_key_exists('array', $rta) ){
         // Devolvio notas!
@@ -54,6 +57,8 @@
         // No devuelve na
         echo $rta['error'];
     }
+    }
+   
 ?>
 
 <!-- <script src="../../Public/jsPuro/data.js"></script> -->
