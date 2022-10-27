@@ -62,7 +62,6 @@
         </ul>
     </p>
 
-    
 </div>
 
 <section class="p-5">
@@ -86,10 +85,10 @@
         <div class="row align-items-center justify-content-between">
             <div class="col-md p-5">
                 <h3>Instalación</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores sed deleniti laudantium dignissimos. Aliquid sunt laborum ipsa animi. Delectus maxime ad aperiam ipsam laboriosam quo illum explicabo, facilis sapiente ducimus.</p>
+                <p>Debe tener en cuenta que para realizar la instalación de las librerías primero debe cumplir ciertos requisitos, como por ejemplo, poseer una versión de PHP mayor a la 7.3, tener un servidor local para poder ejecutar los scripts como WAMP o XAMPP, y por último, poseer Composer.</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nihil provident mollitia. Ad similique dolore vero eius iste cumque laudantium delectus ex voluptate ullam dolor itaque, hic animi modi laborum!</p>
-                <a href="#" class="btn btn-primary mt-3"><i class="bi bi-chevron-right"></i>Leer más</a>
+                <p>Las instalaciones mediante Composer son opcionales, ya que ambas librerías pueden ser instaladas de forma manual descargando un archivo comprimido, el cual incluye la librería.</p>
+                <a href="https://docs.google.com/document/d/1rcKLyzDvkGfA7sbx-9CDE6Ak9hxqHJ7GBvuDWftzWio/edit?usp=sharing" target="_blank" class="btn btn-primary mt-3"><i class="bi bi-chevron-right"></i>Leer más</a>
             </div>
             <div class="col-md">
                 <a href="#" class="btn mt-3">

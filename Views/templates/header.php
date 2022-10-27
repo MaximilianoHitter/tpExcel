@@ -35,6 +35,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoMax - Excel</title>
     <link rel="icon" type="image/x-icon" href="../../Public/img/chip.png">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../../Public/bootstrap-5.2.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -43,8 +45,7 @@
     <!--Datatables-->
     <link rel="stylesheet" href="../../Vendor/datatables/datatables.min.css">
     <script src="../../Vendor/datatables/datatables.min.js"></script>
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
