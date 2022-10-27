@@ -2,6 +2,10 @@
     require_once('../templates/header.php');
     require_once('../../Models/conector/db.php');
 
+    if( isset($_SESSION['user_id']) ){
+        header('Location: ../home/index.php');
+    }
+
     $conn = new db();
     $profesor = new ProfesorController();
     $data = $profesor->getDatos();

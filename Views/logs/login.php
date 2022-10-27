@@ -5,7 +5,7 @@
 
     // session_start();    
     if( isset($_SESSION['user_id']) ){
-        header( 'Location: /tpExcel' );
+        header('Location: ../home/index.php');
     }
 
     $conn = new db();
